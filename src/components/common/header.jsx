@@ -14,6 +14,9 @@ var Header = React.createClass({
                             <a href="/">Home</a>
                         </li>
                         <li>    
+                            <a href="/#authors">Authors</a>
+                        </li>
+                        <li>    
                             <a href="/#about">About</a>
                         </li>
                     </ul>
