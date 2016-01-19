@@ -6,7 +6,7 @@ var About = React.createClass({
     statics: {
         willTransitionTo: function(transition, params, query, callback){
             if(confirm('Are you sure you want to read a page that\'s this boring?')){
-                callback()
+                callback();
             }
             else{
                 transition.about();

@@ -20,7 +20,8 @@ var config = {
         html: './src/**/*.html',
         css: [
             './node_modules/bootstrap/dist/css/bootstrap.min.css',
-            './node_modules/bootstrap/dist/css/bootstrap-thme.min.css'
+            './node_modules/bootstrap/dist/css/bootstrap-thme.min.css',
+            './node_modules/toastr/toastr.css'
         ],
         images:[
             './src/images/*'
