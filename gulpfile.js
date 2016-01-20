@@ -23,7 +23,7 @@ var config = {
             './node_modules/bootstrap/dist/css/bootstrap-thme.min.css',
             './node_modules/toastr/toastr.css'
         ],
-        images:[
+        images: [
             './src/images/*'
         ],
         favicon: './src/favicon.ico',
@@ -48,7 +48,7 @@ gulp.task('connect', function () {
 
 gulp.task('open', ['connect'], function () {
     gulp.src('dist/index.html')
-        .pipe(open({ uri: config.absoluteUrl() }));
+        .pipe(open({uri: config.absoluteUrl()}));
 });
 
 gulp.task('html', function () {
@@ -83,7 +83,7 @@ gulp.task('images', function () {
 
 gulp.task('lint', function () {
     return gulp.src(config.paths.js)
-        .pipe(lint({ config: 'eslint.config.json' }))
+        .pipe(lint({config: 'eslint.config.json'}))
         .pipe(lint.format());
 });
 

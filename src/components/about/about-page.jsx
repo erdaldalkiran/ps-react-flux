@@ -9,7 +9,7 @@ var About = React.createClass({
                 callback();
             }
             else{
-                transition.about();
+                transition.abort();
             }
         },
         willTransitionFrom: function(transition, component){

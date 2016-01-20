@@ -3,28 +3,32 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
-var AuthorApi = require('../../api/author-api');
+var AuthorStore = require('../../stores/author-store');
 var AuthorList = require('./author-list.jsx');
 
 var AuthorPage = React.createClass({
-    getInitialState: function(){
-      return {
-        authors: []  
-      };
+    getInitialState: function () {
+        return {
+            authors: AuthorStore.getAllAuthors()
+        };
     },
-    componentDidMount: function(){
-        if(this.isMounted){
-            this.setState({
-                authors: AuthorApi.getAllAuthors()
-            });
-        }
+    componentWillMount: function () {
+        AuthorStore.addChangeListener(this._onChange);
     },
-    render: function(){ 
+    componentWillUnmount: function () {
+        AuthorStore.removeChangeListener(this._onChange);
+    },
+    _onChange: function () {
+        this.setState({
+            authors: AuthorStore.getAllAuthors()
+        });
+    },
+    render: function () {
         return (
             <div>
                 <h1>Authors</h1>
                 <Link to='create-author' className='btn btn-default'>Create Author</Link>
-                <AuthorList authors={this.state.authors} />
+                <AuthorList authors={this.state.authors}/>
             </div>
         );
     }
